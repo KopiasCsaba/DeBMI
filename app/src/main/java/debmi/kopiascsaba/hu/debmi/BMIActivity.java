@@ -15,9 +15,7 @@ import android.widget.TextView;
 
 import java.util.Random;
 
-/**
- * A login screen that offers login via email/password.
- */
+
 public class BMIActivity extends AppCompatActivity {
 
 
@@ -33,11 +31,13 @@ public class BMIActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bmi);
-        // Set up the login form.
+
         mWeightView = (EditText) findViewById(R.id.weight);
         mNameView = (EditText) findViewById(R.id.name);
         mHeightView = (EditText) findViewById(R.id.height);
         tResultView = (TextView) findViewById(R.id.resultView);
+        SP = getSharedPreferences("hu.kopiascsaba.debinagyszeru", Context.MODE_PRIVATE);
+        populateFields();
 
 
         Button mCalculateButton = (Button) findViewById(R.id.calculate);
@@ -47,26 +47,27 @@ public class BMIActivity extends AppCompatActivity {
                 calculate();
             }
         });
-        SP = getSharedPreferences("hu.kopiascsaba.debinagyszeru", Context.MODE_PRIVATE);
 
-        populateFields();
     }
 
+    /**
+     * Populates the fields from the stored values, if there is any
+     */
     private void populateFields() {
-
         if (SP.contains("name")) {
             mNameView.setText(SP.getString("name", ""));
         }
-
         if (SP.contains("height")) {
             mHeightView.setText(SP.getString("height", ""));
         }
-
         if (SP.contains("name") && SP.contains("height")) {
             mWeightView.requestFocus();
         }
     }
 
+    /**
+     * Updates the field values into the SharedPreferences upon submission
+     */
     private void updateStoredFieldValues() {
         SharedPreferences.Editor editor = SP.edit();
         editor.putString("name", mNameView.getText().toString());
@@ -74,15 +75,17 @@ public class BMIActivity extends AppCompatActivity {
         editor.apply();
     }
 
+    /**
+     * Submit handler
+     */
     private void calculate() {
         if (!validateFields()) {
             return;
         }
 
         updateStoredFieldValues();
-        /**
-         * Zárjuk be a billentyűzetet, ne takarja el a cuccot!
-         */
+
+        // Let's close the keyboard, it would hide the gui's important parts with the result
         View view = this.getCurrentFocus();
         if (view != null) {
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -94,15 +97,13 @@ public class BMIActivity extends AppCompatActivity {
         double weight = Double.valueOf(mWeightView.getText().toString());
         double height = Double.valueOf(mHeightView.getText().toString()) / 100;
 
-        // A NAGY SZÁMÍTÁS
+        // Do the most important part:)
         double bmi = weight / (height * height);
 
 
         StringBuilder sb = new StringBuilder();
 
-        /**
-         * BMI és BMI kategória kiírás
-         */
+        // Display BMI and BMI category
         int bmiDescription = 0;
         if (bmi <= 18.5) {
             bmiDescription = R.string.bmi_underweight;
@@ -117,9 +118,7 @@ public class BMIActivity extends AppCompatActivity {
         sb.append(String.format(getResources().getString(R.string.bmi_result), name, bmi, getResources().getString(bmiDescription)));
         sb.append("<br><br>");
 
-        /**
-         * Korrekció kiírás
-         */
+        // If correction needed, then calculate and display that
         if (bmiDescription != R.string.bmi_normal) {
             double idealWeight = 21.75 * (height * height); // 18.5 - 25 között van
             double weightDiff = weight - idealWeight;
@@ -137,10 +136,7 @@ public class BMIActivity extends AppCompatActivity {
                     Math.abs(wPercent)
                     )
             );
-
-            /**
-             * Dicséretek:))
-             */
+            // Some hidden treasury for just someone:)
             if (name.matches("(?i:(Debóra|Debi|Debóca|Cippóra|Cippora|Deby|Debora))")) {
                 sb.append("<br><br>");
                 String[] praises = getResources().getStringArray(R.array.praises);
@@ -149,11 +145,17 @@ public class BMIActivity extends AppCompatActivity {
             }
 
         }
-        tResultView.setText(Html.fromHtml(sb.toString()));
 
+
+        tResultView.setText(Html.fromHtml(sb.toString()));
 
     }
 
+    /**
+     * Validation of the input fields, with some added fun messages
+     *
+     * @return boolean
+     */
 
     private boolean validateFields() {
         String name = mNameView.getText().toString();
@@ -173,7 +175,7 @@ public class BMIActivity extends AppCompatActivity {
             mHeightView.setError(getString(R.string.form_error_height));
             focusView = mHeightView;
             cancel = true;
-        } else if (!cancel) {
+        } else {
             weight = Double.valueOf(mWeightView.getText().toString());
             height = Double.valueOf(mHeightView.getText().toString());
 
@@ -191,7 +193,6 @@ public class BMIActivity extends AppCompatActivity {
                     mHeightView.setError(getString(R.string.form_error_height_high));
                 }
 
-
                 focusView = mHeightView;
                 cancel = true;
             } else if (weight < 15 || weight > 300) {
@@ -199,7 +200,6 @@ public class BMIActivity extends AppCompatActivity {
                 focusView = mWeightView;
                 cancel = true;
             }
-
         }
         if (cancel) {
             focusView.requestFocus();
@@ -207,9 +207,7 @@ public class BMIActivity extends AppCompatActivity {
         } else {
             return true;
         }
-
     }
-
 
 }
 

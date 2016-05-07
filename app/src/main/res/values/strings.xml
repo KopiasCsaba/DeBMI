@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">DeBMI</string>
 
-    <!-- Strings related to login -->
     <string name="prompt_name">Név</string>
     <string name="prompt_weight">Testsúly (kg)</string>
     <string name="prompt_height">Magasság (cm)</string>
@@ -39,7 +38,6 @@
     <string name="bmi_correction_notice_down">Így %1$.1f kg leszel, jelenleg azonban ideális testsúlyodnál %2$.1f%%-al nehezebb vagy!</string>
     <string name="form_error_name">A mező kitöltése kötelező! Ha üresen hagyja, akkor neve letlen!</string>
 
-
     <string name="form_error_weight">A mező kitöltése kötelező! Mit fogunk aratni ha ez így megy tovább?</string>
     <string name="form_error_weight_low">Értem én, hogy pehely súlyú, de velem nyugodtan legyen őszinte!</string>
     <string name="form_error_weight_high">Neeemár... Nem a zongora súlyát kérdeztem!</string>
@@ -47,7 +45,6 @@
     <string name="form_error_height">A mező kitöltése kötelező, macskák ezrei halnak meg naponta ilyen hibák miatt!</string>
     <string name="form_error_height_low">Azon gondolkozom, hogy ön törp-e?!</string>
     <string name="form_error_height_high">Nem a kerti fa magasságát kérdeztem!</string>
-    <string name="form_error_height_very_high">Nem a kerti fa magasságát kérdeztem!</string>
     <string name="form_error_height_ultra_high">Rád felnéznek, az biztos!</string>
     <string name="form_error_height_giga_high">Olyan magasan már alig van oxigén, hogy bírod?</string>
     <string name="form_error_height_ultra_giga_high">Tudtam, hogy ki fogod próbálni... Nincs tovább:P</string>
