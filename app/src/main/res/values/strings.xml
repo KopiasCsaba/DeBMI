@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">DeBMI</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_name">Név</string>
+    <string name="prompt_weight">Testsúly (kg)</string>
+    <string name="prompt_height">Magasság (cm)</string>
+    <string name="action_calculate">Számítás</string>
+
+
+    <string name="praises_wrapper"><![CDATA[<h4>Mindezektől függetlenül, %1$s</h4> ]]></string>
+    <string-array name="praises">
+        <item>gyönyörű vagy!</item>
+        <item>szép vagy!</item>
+        <item>aranyos vagy!</item>
+        <item>nagyszerű vagy!</item>
+        <item>Isten gyermeke vagy!</item>
+        <item>Isten szeretett gyermeke vagy!</item>
+        <item>Isten fantasztikus gyermeke vagy!</item>
+        <item>Isten úgy szeret, ahogy vagy!</item>
+        <item>Isten szeret!</item>
+        <item>Isten szeme fénye vagy!</item>
+        <item>Isten egyik cuki gyermeke vagy!</item>
+        <item>Isten egyik drága gyermeke vagy!</item>
+        <item>szeretünk!</item>
+    </string-array>
+
+    <string name="bmi_underweight">súlyhiányos</string>
+    <string name="bmi_normal">normális súlyú</string>
+    <string name="bmi_overweight">túlsúlyos</string>
+    <string name="bmi_obese">elhízott</string>
+    <string name="bmi_result"><![CDATA[
+    <h1>Kedves %1$s!</h1>
+    BMI indexed %2$.2f azaz <b>%3$s</b> vagy! ]]></string>
+    <string name="bmi_correction">Ahhoz, hogy a normális sávba kerülj %1$.1f kilogrammot kell %2$s!</string>
+    <string name="bmi_correction_up">híznod</string>
+    <string name="bmi_correction_down">lefogynod</string>
+    <string name="bmi_correction_notice_up">Így %1$.1f kg leszel, jelenleg azonban ideális testsúlyod %2$.1f%%-a hiányzik!</string>
+    <string name="bmi_correction_notice_down">Így %1$.1f kg leszel, jelenleg azonban ideális testsúlyodnál %2$.1f%%-al nehezebb vagy!</string>
+    <string name="form_error_name">A mező kitöltése kötelező! Ha üresen hagyja, akkor neve letlen!</string>
+
+
+    <string name="form_error_weight">A mező kitöltése kötelező! Mit fogunk aratni ha ez így megy tovább?</string>
+    <string name="form_error_weight_low">Értem én, hogy pehely súlyú, de velem nyugodtan legyen őszinte!</string>
+    <string name="form_error_weight_high">Neeemár... Nem a zongora súlyát kérdeztem!</string>
+
+    <string name="form_error_height">A mező kitöltése kötelező, macskák ezrei halnak meg naponta ilyen hibák miatt!</string>
+    <string name="form_error_height_low">Azon gondolkozom, hogy ön törp-e?!</string>
+    <string name="form_error_height_high">Nem a kerti fa magasságát kérdeztem!</string>
+    <string name="form_error_height_very_high">Nem a kerti fa magasságát kérdeztem!</string>
+    <string name="form_error_height_ultra_high">Rád felnéznek, az biztos!</string>
+    <string name="form_error_height_giga_high">Olyan magasan már alig van oxigén, hogy bírod?</string>
+    <string name="form_error_height_ultra_giga_high">Tudtam, hogy ki fogod próbálni... Nincs tovább:P</string>
+
+
+</resources>
