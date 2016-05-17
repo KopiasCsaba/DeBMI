@@ -15,7 +15,7 @@ It is a simple BMI calculator application with some usability features, like:
 <img src='https://raw.githubusercontent.com/KopiasCsaba/DeBMI/master/docs/img/screenshot_c.png' width=250>
 
 ## That is something
-Lorem ipsum is coming here
+Lorem ipsum is coming here, dolor sit amet
 
 <!-- TESZT -->
 <!-- TESZT2 -->
